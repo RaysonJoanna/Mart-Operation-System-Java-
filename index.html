@@ -11,38 +11,127 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
     <title>마트운영시스템</title>
     <style>
         *{ 
             margin:0; font-family: 'Noto Sans KR', sans-serif;
         }
+        #mulgeon, #gogaek, #panmae {
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+        }
+
+        hr {
+            margin: 50px 0;
+        }
+
         
     </style>
 </head>
+<body>
     <div class="d-flex justify-content-center mb-5">
         <img src="img/mos.png" alt="mos" style="width:80%; max-width: 1600px;">
     </div>
-    <div class="p-4 justify-content-center" style="margin-top: 100px; text-align: center;">
-        <h1 class="mb-5 pt-5" style="border-top: 2px solid #00A99D;">프로젝트 소개</h1>
-        <div>
+    <div class="p-4 justify-content-center " style="margin-top: 100px; text-align: center;">
+        <h1 class="mt-5 pt-5" style="border-top: 2px solid #00A99D;">프로젝트 소개</h1>
+        <div style="border-bottom: 2px solid #00A99D;">
             <p class="mt-5 fs-5">기간 : 2023.05.12~05.14</p>
+            <p class="fs-5">목적 : 마트 관리자의 입장에서 물건을 구매, 판매하는 시스템</p>
             <p class="fs-5">언어 : 자바8</p>
-            <p class="fs-5">개발 인원 : 1명</p>
-            <div class="mt-5 pb-5" style="border-bottom: 2px solid #00A99D;">
-                <p class="fs-5">구현기능</p>
-                <p class="fs-5 mb-2" style="margin:0;">1. 물건발주</p>
-                <p class="fs-5 mb-2" style="margin:0;">2. 신규 고객 등록</p>
-                <p class="fs-5 mb-2" style="margin:0;">3. 물건 판매 구현</p>
-            </div>
+            <p class="fs-5 pb-3">개발 인원 : 1명</p>
         </div>
         <div class="mb-5" style="margin-top: 150px;">
             <h1 class="mb-5">프로젝트 설계</h1>
             <img src="img/mos_diagram.png" alt="mos_diagram">
         </div>
         <div>
-            <p class="fs-3 mb-5 pt-5">구현기능</p>
-            <p class="fs-5 text-center" style="margin:0;">1. 물건발주</p>
+            <p class="h1 mb-5 pt-5">구현기능</p>
+            <p class="h5 text-center mb-3" id="mulgeon" onClick="here(event)">1. 물건발주<i class="fas fa-mouse-pointer" id="mclick" style="margin-left: 10px;"></i></p>
+            <div id="mulgeonC" style="display: none;">
+                <div style="width:900px; margin: 0 auto;">
+                    <h5 class="mt-5 text-center" style="color:green">Test.java</h5>
+                    <img src="img/mos1.PNG" alt="code1" class="mt-5">
+                    <img src="img/mos1-1.PNG" alt="code1-1" class="mb-5">
+                    <hr> 
+                    <h5 class="mt-5 text-center pt-5" style="color:green">Test.java</h5>
+                    <img src="img/mos0.PNG" alt="code0" class="mt-5">
+                    <img src="img/mos0-1.PNG" alt="code0-1">
+            
+                    <h5 class="mt-5 pt-5 text-center" style="color:green">Warehouse.java</h5>
+                    <img src="img/mos2.PNG" alt="code2" class="mt-5">
+                    <h5 class="mt-5 pt-5 text-center" style="color:green">Account.java</h5>
+                    <img src="img/mos3.PNG" alt="code3" class="mt-5">
+                    <img src="img/mos4.PNG" alt="code4" class="mt-5">
+                </div>
+                <button class="btn btn-lg btn-primary mb-5" id="mclose" onClick="jeob(event)">접기</button>
+            </div>
+            <p class="h5 text-center mb-3" id="gogaek" onClick="here(event)">2. 신규 고객 등록<i class="fas fa-mouse-pointer ms-2" id="gclick" style="margin-left: 10px;"></i></p>
+            <div id="gogaekC" style="display: none;">
+                <div style="width:900px; margin: 0 auto;">
+                    <h5 class="text-center" style="color:green">Test.java</h5>
+                    <img src="img/mosr2.PNG" alt="r2" class="mt-5">
+                    <hr>
+                    <img src="img/mos5.PNG" alt="code5" class="mt-5">
+                
+                    <h5 class="mt-5 pt-5 text-center" style="color:green">CustomerData.java</h5>
+                    <img src="img/mos6.PNG" alt="code6" class="mt-5 pb-5">
+                </div>
+                <button class="btn btn-lg btn-primary mb-5" id="gclose" onClick="jeob(event)">접기</button>
+            </div>
+            <p class="h5 text-center" id="panmae" onClick="here(event)">3. 물건 판매 구현<i class="fas fa-mouse-pointer ms-2" id="pclick" style="margin-left: 10px;"></i></p>
+            <div id="panmaeC" style="display: none;">
+                <div style="width:900px; margin: 0 auto;">
+                    <h5 class="mt-5 text-center" style="color:green">Test.java</h5>
+                    <img src="img/mosr3.PNG" alt="r3" class="pb-5">
+                    <img src="img/mosr4.PNG" alt="r4" class="mt-5">
+                    <h5 class="mt-5 text-center pt-5" style="color:green">Test.java</h5>
+                    <img src="img/mos7.PNG" alt="c7" class="mt-5">
+                    <h5 class="mt-5 text-center pt-5" style="color:green">Warehouse.java</h5>
+                    <img src="img/mos8.PNG" alt="c8" class="mt-5">
+                    <h5 class="mt-5 text-center pt-5" style="color:green">Product.java</h5>
+                    <img src="img/mos9.PNG" alt="c9" class="mt-5">
+                    <h5 class="mt-5 pt-5 text-center" style="color:green">Account.java</h5>
+                    <img src="img/mos10.PNG" alt="c10" class="mt-5">
+                </div>
+                <button class="btn btn-lg btn-primary mb-5" id="pclose" onClick="jeob(event)">접기</button>
+            </div>
+        </div>
+        <div>
+            <a href="https://github.com/RaysonJoanna/Mart-Operation-System-Java-" class="d-flex justify-content-center mt-5"><img src="img/moscode.png" alt="보러가기" style="width:40%; max-width: 800px;"></a>
         </div>
     </div>
+    <script>
+        function here(e) {
+            let id = e.target.id;
+            let div = $(`#${id}`).next()[0].id;
+            let pointer = $(`#${id}`).children().first()[0].id;
+
+            if($(`#${div}`).css('display') == 'none') {
+                $(`#${div}`).show();
+                $(`#${pointer}`).css("color","#c7c7c7");
+            } else {
+                $(`#${div}`).hide();
+                $(`#${pointer}`).css("color","#1E3050");
+            }
+        }
+
+        function jeob(e){
+            let self = e.target.id;
+            let mother = $(`#${self}`).parent()[0].id;
+            let aunt = $(`#${mother}`).prev()[0].id;
+            console.log(aunt);
+
+
+            $(`#${self}`).parent().css('display','none');
+            $(`#${aunt}`).children().css("color","#1E3050");
+        }
+    </script>
 </body>
 </html>
